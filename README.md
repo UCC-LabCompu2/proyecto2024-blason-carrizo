@@ -27,7 +27,7 @@ Nuestra aplicación Web es para un gimnasio, donde podes sacar turnos de la acti
 :octocat:
 :sparkles:
 
-Link del proyecto: [gh-pages](https://github.com/UCC-LabCompu2/proyecto2024-blason-carrizo/tree/main)
+Link del proyecto: [gh-pages](https://ucc-labcompu2.github.io/proyecto2024-blason-carrizo/index.html)
 
 
 
