@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Proyecto Laboratorio de Computación
 
 [IMPERIO GYM](#imperio-gym)
@@ -55,16 +54,8 @@ Nuestra aplicación Web es para un gimnasio, donde podes sacar turnos de la acti
 | ------|---------|-------|
 |2313236@ucc.edu.ar | Carrizo Julieta |2313236|
 |2319555@ucc.edu.ar | Blason Martina |2319555|
->>>>>>> 79fc3bfab8a26c4b74656feef7940aad1825e458
 
 :octocat:
 :sparkles:
 
-<<<<<<< HEAD
-Link del proyecto: [gh-pages](https://github.com/UCC-LabCompu2/proyecto2024-blason-carrizo/tree/main)
-=======
 Link del proyecto: [gh-pages](https://ucc-labcompu2.github.io/proyecto2024-blason-carrizo/index.html)
-
-
-
->>>>>>> 79fc3bfab8a26c4b74656feef7940aad1825e458
