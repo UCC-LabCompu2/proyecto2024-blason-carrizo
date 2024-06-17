@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
+    <script type="text/javascript" src="MisFunciones.js"></script>
 
 </head>
-<body>
+<body onload="mostrarInscripcion()">
 <header>
     <nav>
         <div class="conteiner">
@@ -28,10 +29,10 @@
             <h2>Te has inscripto correctamente!</h2>
         </div>
         <div>
-            <h3>Sucursal xxxx</h3>
-            <h3>Actividad xxxx</h3>
-            <h3>Fecha dd/mm/aaaa</h3>
-            <h3>Hora xx:xx</h3>
+            <h3>Sucursal:<input id="Sucursal" type="text" disabled></h3>
+            <h3>Actividad:<input id="Actividad" type="text" disabled></h3>
+            <h3>Fecha:<input id="Fecha" type="text" disabled></h3>
+            <h3>Hora:<input id="Hora" type="text" disabled></h3>
         </div>
         <div>
             <p class="boton-volver">
