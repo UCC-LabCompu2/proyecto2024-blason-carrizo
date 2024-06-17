@@ -1,8 +1,8 @@
 /**
  *Permite verificar que el usuario ingrese correctamente el dni, sin utilizar letras.
  * @method ValidarDNI
- * @param {}id
- * @param { }valor
+ * @param {number}id
+ * @param {number}valor
  * @return
  */
 
@@ -17,6 +17,14 @@ let ValidarDNI = (id, valor) => {
     document.getElementById("DNI").value = "";
 
 }
+
+/**
+ *Permite verificar que el usuario ingrese correctamente el nombre, sin utilizar numeros.
+ * @method ValidarNombre
+ * @param {string}id
+ * @param {string}valor
+ * @return
+ */
 let ValidarNombre = (id, valor) => {
 
     if (eval(valor)) {
@@ -26,6 +34,14 @@ let ValidarNombre = (id, valor) => {
     document.getElementById("Nombre").value = "";
 
 }
+
+/**
+ *Permite verificar que el usuario ingrese correctamente el apellido, sin utilizar numeros.
+ * @method ValidarApellido
+ * @param {string}id
+ * @param {string}valor
+ * @return
+ */
 let ValidarApellido = (id, valor) => {
 
     if (eval(valor)) {
@@ -36,6 +52,11 @@ let ValidarApellido = (id, valor) => {
 
 }
 
+/**
+ *Permite al usuario incribirse a las clases y verifica que haya completado todos los campos
+ * @method cargarInscripcion
+ * @return
+ */
 let cargarInscripcion = () => {
     var Sucursal, Actividad, Fecha, Hora;
 
@@ -61,6 +82,12 @@ let cargarInscripcion = () => {
 
 }
 
+/**
+ *Permite mostrar al usuario su inscripcion a la clase
+ * @method mostrarInscripcion
+ * @return
+ */
+
 let mostrarInscripcion = () => {
     var Sucursal, Actividad, Fecha, Hora;
 
@@ -75,6 +102,11 @@ let mostrarInscripcion = () => {
     document.getElementById("Hora").value = Hora;
 }
 
+/**
+ *Guarda lo que el usuario escribio y eligió en los campos
+ * @method serSocio
+ * @return
+ */
 let serSocio = () => {
     var nombre, apellido, sexo, email, usuario, dni;
 
@@ -95,7 +127,11 @@ let serSocio = () => {
     window.open('miPerfilSocio.html');
 
 }
-
+/**
+ *Permite mostrar al usuario su tarjeta de socio, con los datos ingresados mediante un canva
+ * @method MostrarSocio
+ * @return
+ */
 let MostrarSocio = () => {
     var nombre, apellido, sexo, email, usuario, dni;
 
@@ -131,7 +167,13 @@ let MostrarSocio = () => {
         ctx.drawImage(img, 500, 150, 150, 150);
     }
 };
-
+/**
+ *Permite verificar que el dato ingresado por el usuario sea valido
+ * @method validarPesoAltura
+ * @param {number}id
+ * @param {number}valor
+ * @return
+ */
 let validarPesoAltura = (id, valor) => {
 
     if (valor.includes(",")) {
@@ -147,6 +189,11 @@ let validarPesoAltura = (id, valor) => {
     }
 
 }
+/**
+ *Permite calcular el peso corporal ideal del usuario
+ * @method calcularIMC
+ * @return
+ */
 let calcularIMC = () => {
     let peso, altura;
 
@@ -160,4 +207,3 @@ let calcularIMC = () => {
         document.getElementById("total").innerHTML = ("Por favor ingrese valores validos");
     }
 }
-
