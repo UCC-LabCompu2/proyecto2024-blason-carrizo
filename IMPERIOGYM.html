@@ -9,9 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
+    <script type="text/javascript" src="MisFunciones.js"></script>
 
 </head>
-<body>
+<body onload="alert('Hola usuario!')">
 <header>
     <div class="conteiner">
         <img id="Logo" src="Imágenes/Logo_gym.jpg" alt="Logo del gimnasio">
@@ -75,14 +76,17 @@
                 <option>21:00</option>
                 <option>22:00</option>
             </select>
-
-            <br>
+        </p>
+        <br>
     </div>
     <br>
 
-    <p class="boton-inscribirme">
-        <a href="IMPERIOGYM2.html">INSCRIBIRME</a>
-    </p>
+    <button onclick="cargarInscripcion()">
+        INSCRIBIRME
+    </button>
+    <!-- <p class="boton-inscribirme">
+         <a href="IMPERIOGYM2.html" id="inscribirmeBtn">INSCRIBIRME</a>
+     </p>-->
 
 </main>
 </body>
