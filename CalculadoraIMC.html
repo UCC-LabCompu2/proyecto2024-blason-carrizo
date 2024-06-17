@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="Estilos.css" type="text/css">
+    <link rel="shortcut icon" href="Imágenes/Favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <script type="text/javascript" src="MisFunciones.js"></script>
 
+</head>
+<body>
+<header>
+    <div class="conteiner">
+        <img id="Logo" src="Imágenes/Logo_gym.jpg" alt="Logo del gimnasio">
+        <h1>IMPERIO GYM</h1>
+    </div>
+</header>
+
+<h2>Calcula tu Peso Corporal Ideal</h2>
+<form name="PesoAltura">
+    <p>
+        <input id="peso" type="text" name="peso" onchange="validarPesoAltura(this.id,this.value)"
+               placeholder="Peso en kilogramos">
+        /
+        <input id="altura" type="text" name="altura" onchange="validarPesoAltura(this.id,this.value)"
+               placeholder="Altura en metros">
+        =
+        <span id="total" name="total"></span>
+    </p>
+</form>
+<img id="Calculadora" src="Imágenes/CalculadoraIMC.jpeg">
+<p class="boton-volver">
+    <a href="index.html">Volver al inicio</a>
+</p>
+</div>
+
+</body>
+</html>
