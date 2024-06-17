@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet">
+    <script type="text/javascript" src="MisFunciones.js"></script>
 
 </head>
 <body>
@@ -22,11 +23,13 @@
     <h3>Datos personales</h3>
     <p>
         <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" size="50" maxlength="40" placeholder="Nombre">
+        <input type="text" id="Nombre" name="Nombre" size="50" maxlength="40" placeholder="Nombre"
+               onchange="ValidarNombre(this.id, this.value)">
     </p>
     <p>
         <label for="Apellido">Apellido:</label>
-        <input type="text" id="Apellido" name="Apellido" size="50" placeholder="Apellido">
+        <input type="text" id="Apellido" name="Apellido" size="50" placeholder="Apellido"
+               onchange="ValidarApellido(this.id, this.value)">
     </p>
     <p>
         Sexo:
@@ -45,11 +48,12 @@
     </p>
     <p>
         <label for="DNI">DNI:</label>
-        <input type="text" id="DNI" name="DNI" size="50" placeholder="DNI">
+        <input type="text" id="DNI" name="DNI" size="50" placeholder="DNI" onchange="ValidarDNI(this.id, this.value)">
     </p>
     <br>
-</div>
+    <button onclick="serSocio()">Registrarme como socio</button>
 
+</div>
 <p>
 <div class="boton-recomendados">
     <a href="RECOMENDADOS.html">RECOMENDADOS</a>
