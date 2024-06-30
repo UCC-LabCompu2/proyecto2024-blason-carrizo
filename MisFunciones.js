@@ -1,31 +1,31 @@
 /**
  *Permite verificar que el usuario ingrese correctamente el dni, sin utilizar letras.
  * @method ValidarDNI
- * @param {number}id
- * @param {number}valor
- * @return
+ * @param {number}id -El identificador del campo, usualmente "DNI"
+ * @param {number}valor -El valor ingresado por el usuario, debe ser numérico
+ * @return {void}
  */
 
-let ValidarDNI = (id, valor) => {
+const ValidarDNI = (id, valor) => {
 
     if (isNaN(valor)) {
         alert("El valor ingresado no es correcto");
 
     } else if (id == "DNI") {
-        return DNI;
+        return;
     }
     document.getElementById("DNI").value = "";
 
 }
 
 /**
- *Permite verificar que el usuario ingrese correctamente el nombre, sin utilizar numeros.
+ *Permite verificar que el usuario ingrese correctamente el nombre, sin utilizar números.
  * @method ValidarNombre
- * @param {string}id
- * @param {string}valor
- * @return
+ * @param {string}id -El identificador del campo, usualmente "Nombre"
+ * @param {string}valor  -El valor ingresado por el usuario
+ * @return {void}
  */
-let ValidarNombre = (id, valor) => {
+const ValidarNombre = (id, valor) => {
 
     if (eval(valor)) {
         alert("El valor ingresado no es correcto");
@@ -38,11 +38,11 @@ let ValidarNombre = (id, valor) => {
 /**
  *Permite verificar que el usuario ingrese correctamente el apellido, sin utilizar numeros.
  * @method ValidarApellido
- * @param {string}id
- * @param {string}valor
- * @return
+ * @param {string}id  -El identificador del campo, usualmente "Apellido"
+ * @param {string}valor  -El valor ingresado por el usuario
+ * @return {void}
  */
-let ValidarApellido = (id, valor) => {
+const ValidarApellido = (id, valor) => {
 
     if (eval(valor)) {
         alert("El valor ingresado no es correcto");
@@ -55,10 +55,10 @@ let ValidarApellido = (id, valor) => {
 /**
  *Permite al usuario incribirse a las clases y verifica que haya completado todos los campos
  * @method cargarInscripcion
- * @return
+ * @return {void}
  */
-let cargarInscripcion = () => {
-    var Sucursal, Actividad, Fecha, Hora;
+const cargarInscripcion = () => {
+    let Sucursal, Actividad, Fecha, Hora;
 
     Sucursal = document.getElementById("Sucursal").value;
     Actividad = document.getElementById("Actividad").value;
@@ -83,39 +83,69 @@ let cargarInscripcion = () => {
 }
 
 /**
- *Permite mostrar al usuario su inscripcion a la clase
- * @method mostrarInscripcion
- * @return
+ *Permite verificar si la fecha de la clase es posterior a la fecha actual
+ * @method validarFecha
+ *@param {string} fecha -La fecha de la clase
+ * @return {boolean} -Retorna true si la fecha es válida, de lo contrario false
  */
 
-let mostrarInscripcion = () => {
-    var Sucursal, Actividad, Fecha, Hora;
+const validarFecha = (fecha) => {
+    const fechaClase = new Date(fecha);
+    const fechaActual = new Date();
+    if (fechaClase <= fechaActual) {
+        alert("La fecha de la clase debe ser posterior a la fecha actual.");
+        return false;
+    }
+    return true;
+}
+/**
+ *Permite mostrar al usuario su inscripcion a la clase.
+ * @method mostrarInscripcion
+ *@return {void}
+ */
+const mostrarInscripcion = () => {
+    let Sucursal, Actividad, Fecha, Hora;
 
     Sucursal = localStorage.getItem("sucursalLS");
     Actividad = localStorage.getItem("actividadLS");
     Fecha = localStorage.getItem("fechaLS");
     Hora = localStorage.getItem("horaLS");
 
+    if (!validarFecha(Fecha)) {
+        window.location.href = "IMPERIOGYM.html";
+        return;
+    }
+
+
     document.getElementById("Sucursal").value = Sucursal;
     document.getElementById("Actividad").value = Actividad;
     document.getElementById("Fecha").value = Fecha;
     document.getElementById("Hora").value = Hora;
+
+
 }
 
 /**
- *Guarda lo que el usuario escribio y eligió en los campos
+ * Permite guardar los datos ingresados por el usuario y redirigirlo a su perfil.
  * @method serSocio
- * @return
+ * @return {void}
  */
-let serSocio = () => {
-    var nombre, apellido, sexo, email, usuario, dni;
+const serSocio = () => {
+    let nombre, apellido, sexo, email, usuario, dni;
 
     nombre = document.getElementById("Nombre").value;
     apellido = document.getElementById("Apellido").value;
-    sexo = document.querySelector('input[name="sexo"]:checked').value;
+    let sexoSeleccionado = document.querySelector('input[name="sexo"]:checked');
+    sexo = sexoSeleccionado ? sexoSeleccionado.value : null;
     email = document.getElementById("Email").value;
     usuario = document.getElementById("Usuario").value;
     dni = document.getElementById("DNI").value;
+
+
+    if (!nombre || !apellido || !sexo || !email || !usuario || !dni) {
+        alert("Por favor completa todos los campos antes de continuar.");
+        return;
+    }
 
     localStorage.setItem("nombre", nombre);
     localStorage.setItem("apellido", apellido);
@@ -125,15 +155,14 @@ let serSocio = () => {
     localStorage.setItem("dni", dni);
 
     window.open('miPerfilSocio.html');
-
 }
 /**
- *Permite mostrar al usuario su tarjeta de socio, con los datos ingresados mediante un canva
+ *Permite mostrar al usuario su tarjeta de socio, con los datos ingresados mediante un canvas.
  * @method MostrarSocio
- * @return
+ *@return {void}
  */
-let MostrarSocio = () => {
-    var nombre, apellido, sexo, email, usuario, dni;
+const MostrarSocio = () => {
+    let nombre, apellido, sexo, email, usuario, dni;
 
     nombre = localStorage.getItem("nombre");
     apellido = localStorage.getItem("apellido");
@@ -143,8 +172,8 @@ let MostrarSocio = () => {
     dni = localStorage.getItem("dni");
 
 
-    var canvas = document.getElementById("Canvas");
-    var ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("Canvas");
+    const ctx = canvas.getContext("2d");
     ctx.fillStyle = "#f8f8fa";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -170,16 +199,16 @@ let MostrarSocio = () => {
 /**
  *Permite verificar que el dato ingresado por el usuario sea valido
  * @method validarPesoAltura
- * @param {number}id
- * @param {number}valor
- * @return
+ * @param {string}id - El identificador del campo, puede ser "peso" o "altura".
+ * @param {number}valor - El valor ingresado por le usuario, el cual si es ingresado con coma, se reemplaza por punto, Y debe ser positivo.
+ * @return {void}
  */
-let validarPesoAltura = (id, valor) => {
+const validarPesoAltura = (id, valor) => {
 
     if (valor.includes(",")) {
         valor = valor.replace(",", ".");
     }
-    if (isNaN(valor)) {
+    if (isNaN(valor) || parseFloat(valor) < 0) {
         alert("El valor ingresado no es correcto");
         document.getElementById(id).value = "";
 
@@ -190,11 +219,11 @@ let validarPesoAltura = (id, valor) => {
 
 }
 /**
- *Permite calcular el peso corporal ideal del usuario
+ *Permite calcular el peso corporal ideal del usuario(IMC)
  * @method calcularIMC
- * @return
+ * @return {void}
  */
-let calcularIMC = () => {
+const calcularIMC = () => {
     let peso, altura;
 
     peso = Number(document.getElementById("peso").value);
@@ -207,3 +236,5 @@ let calcularIMC = () => {
         document.getElementById("total").innerHTML = ("Por favor ingrese valores validos");
     }
 }
+
+
