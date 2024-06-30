@@ -23,12 +23,12 @@
     <h3>Datos personales</h3>
     <p>
         <label for="Nombre">Nombre:</label>
-        <input type="text" id="Nombre" name="Nombre" size="50" maxlength="40" placeholder="Nombre"
+        <input type="text" id="Nombre" name="Nombre" size="50" maxlength="20" placeholder="Nombre"
                onchange="ValidarNombre(this.id, this.value)">
     </p>
     <p>
         <label for="Apellido">Apellido:</label>
-        <input type="text" id="Apellido" name="Apellido" size="50" placeholder="Apellido"
+        <input type="text" id="Apellido" name="Apellido" size="50" maxlength="20" placeholder="Apellido"
                onchange="ValidarApellido(this.id, this.value)">
     </p>
     <p>
@@ -40,15 +40,16 @@
     </p>
     <p>
         <label for="Email">Email:</label>
-        <input type="email" id="Email" name="Email" size="50" placeholder="email@dominio.com">
+        <input type="email" id="Email" name="Email" size="50" maxlength="50" placeholder="email@dominio.com">
     </p>
     <p>
         <label for="Usuario">Usuario:</label>
-        <input type="text" id="Usuario" name="Usuario" size="50" placeholder="Usuario">
+        <input type="text" id="Usuario" name="Usuario" size="50" maxlength="20" placeholder="Usuario">
     </p>
     <p>
         <label for="DNI">DNI:</label>
-        <input type="text" id="DNI" name="DNI" size="50" placeholder="DNI" onchange="ValidarDNI(this.id, this.value)">
+        <input type="text" id="DNI" name="DNI" size="50" maxlength="20" placeholder="DNI"
+               onchange="ValidarDNI(this.id, this.value)">
     </p>
     <br>
     <button onclick="serSocio()">Registrarme como socio</button>
